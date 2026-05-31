@@ -10,7 +10,8 @@ Wei Xue, Tiancheng Shao, Mingyang Du, Jing Zhou, Xiao Zheng and Ping Zhong
 <p align="center">
   <img width="800" src="./assets/MVFMNet.png">
 </p>
-*Overview framework of the proposed method MVFMNet. It consists of a shallow feature extraction module, a sequence of FMM, and a lightweight image reconstruction module, where the FMM contains a MVFMB and a SGFN.*
+
+***Overview framework of the proposed method MVFMNet**. It consists of a shallow feature extraction module, a sequence of FMM, and a lightweight image reconstruction module, where the FMM contains a MVFMB and a SGFN.*
 
 ---
 ## Requirements
