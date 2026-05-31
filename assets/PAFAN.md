@@ -11,7 +11,7 @@ Wei Xue, Tiancheng Shao, Mingyang Du, Xiao Zheng and Ping Zhong
 <p align="center">
   <img width="800" src="./PAFAN.png">
 </p>
-***Overall architecture of the proposed partial attention feature aggregation network (PAFAN).** It contains four main stages, i.e., shallow feature extraction, a sequence of attention progressive feature distillation blocks, multi-layer feature fusion, and image reconstruction.*
+*Overall architecture of the proposed partial attention feature aggregation network (PAFAN). It contains four main stages, i.e., shallow feature extraction, a sequence of attention progressive feature distillation blocks, multi-layer feature fusion, and image reconstruction.*
 
 ---
 
