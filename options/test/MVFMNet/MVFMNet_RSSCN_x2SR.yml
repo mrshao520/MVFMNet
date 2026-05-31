@@ -1,0 +1,62 @@
+name: MVFMNet_test_RSSCN_x2SR
+model_type: SRModel
+scale: 2
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+
+datasets:
+  test_1:
+    name: RSSCN_val
+    type: PairedImageDataset
+    dataroot_gt: datasets/RSSCN7/val/HR_x2
+    dataroot_lq: datasets/RSSCN7/val/LR_x2
+    filename_tmpl : "{}"
+    io_backend:
+      type: disk
+      
+  test_2:
+    name: RSSCN_test
+    type: PairedImageDataset
+    dataroot_gt: datasets/RSSCN7/test/HR_x2
+    dataroot_lq: datasets/RSSCN7/test/LR_x2
+    filename_tmpl : "{}"
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: MVFMNet
+  dim: 36
+  n_blocks: 8
+  ffn_scale: 2
+  upscaling_factor: 2
+
+
+# path
+path:
+  pretrain_network_g: pretrained_models/MVFMNet/MVFMNet_RSSCN_x2SR.pth
+  strict_load_g: true
+  param_key_g: params_ema
+
+# validation settings
+val:
+  save_img: false
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 2
+      test_y_channel: false # false for Remote-sensing
+    ssim:
+      type: calculate_ssim
+      crop_border: 2
+      test_y_channel: false # false for Remote-sensing
+    scc:
+      type: calculate_scc
+      crop_border: 2
+      test_y_channel: false # false for Remote-sensing
+    sam:
+      type: calculate_sam
+      crop_border: 2
+      test_y_channel: false # false for Remote-sensing
